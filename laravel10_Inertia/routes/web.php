@@ -27,6 +27,15 @@ Route::get('/about', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+Route::get('/product', [FrontEndController::class, 'product']);
+Route::get('/product', function () {
+    return Inertia::render('Product', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

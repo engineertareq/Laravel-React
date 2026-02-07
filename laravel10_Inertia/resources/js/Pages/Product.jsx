@@ -6,6 +6,8 @@ import '../../assets/lib/easing/easing.min.js'
 import '../../assets/css/style.css'
 import '../../assets/lib/waypoints/waypoints.min.js'
 import '../../assets/lib/owlcarousel/owl.carousel.min.js'
+import { usePage } from '@inertiajs/react'
+
 
 
 function Product () {

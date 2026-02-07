@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use DB;
 
 class FrontEndController extends Controller
 {
@@ -16,9 +17,14 @@ class FrontEndController extends Controller
     {
         return Inertia::render('About');
     }
-
     public function Product()
     {
-        return Inertia::render('Product');
+       $products = DB::table('products')->get();
+        return Inertia::render('Product', ['products' => $products]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('ProductEntry');
     }
 }

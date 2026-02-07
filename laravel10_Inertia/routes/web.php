@@ -6,36 +6,19 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', [FrontEndController::class, 'Home']);
+Route::get('/About', [FrontEndController::class, 'About']);
+Route::get('/Product', [FrontEndController::class, 'Product']);
+Route::get('/create', [FrontEndController::class, 'create']);
 
-Route::get('/', [FrontEndController::class, 'home']);
-Route::get('/about', [FrontEndController::class, 'about']);
-Route::get('/about', function () {
-    return Inertia::render('About', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-Route::get('/product', [FrontEndController::class, 'product']);
-Route::get('/product', function () {
-    return Inertia::render('Product', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Home', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
